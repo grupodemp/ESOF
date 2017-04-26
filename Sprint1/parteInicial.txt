@@ -1,0 +1,101 @@
+Chapter 8 – Reading and Writing Files
+
+8.1
+	Neste capitulo estudamos meios de usar o python para trabalhar com arquivos onde veremos como criar,
+ler e salvar arquivos no disco rígido.
+	Cada arquivo tem um nome e um caminho, no qual especifica a localizado dele no computador. Cada sistema
+operacional tem um jeito de escrever os caminhos, para os exemplos que utilizaremos neste relatorio tomaremos 
+como base o meio utilizado pelo Windows. Porem é possivel fazer scripts para lidar com todos os caso, para isso 
+é utulizado a fuçao:    os.path.join()
+      
+       sendo usada da seguinte forma:   
+                                            >>> import os 
+                                            >>> os.path.join ('usr', 'bin', 'spam') 
+                                            'usr \\ bin \\ spam'
+
+como estamos tomando de base o windows, o retorno foi do tipo \\ .
+
+8.2
+	Todo programa executado no computador tem um diretorio de trabalho atual, ou cwd. todo arquivo que nao é
+apresentado começando pela pasta raiz sao assumidos como estadno no diretorio de trabalho atual. Para descobrir o
+atual diretorio de trabalho como um valor de sequencia de caracteres utiliza a funçao:  os.getcwd()
+para altera-lo utiliza:  os.chdir() 
+
+       como da seguinte forma:
+                                  >>> import os 
+                                  >>> os.getcwd () 
+                                  'C: \\ Python34' 
+                                  >>> os.chdir ('C: \\ Windows \\ System32') 
+                                  >>> os.getcwd () 
+                                  'C: \ \ Windows \\ System32 '
+
+8.3
+	Existem duas maneiras para especificar o caminho de um arquivo
+  1)  um caminho absoluto, no qual inicia com a pasta raiz
+  2)  um caminho relativo, que é relativo ao diretorio de trabalho atual do programa
+
+
+                                   imagem 1 aqui
+
+
+8.4 
+ 	Podemos criar novas pastas com a funçao:   os.makedirs()
+usando-a da seguinte forma,  
+                           >>> import os 
+                           >>> os.makedirs ('C: \\ delicious \\ walnut \\ waffles')
+
+
+de modo que as pastas serão criadas seguindo a ordem:
+
+                                   imagem 2 aqui
+
+
+8.5
+    é possivel manipular caminhos relativos para caminhos absolutos, para isso sao utilizadas as funçoes:
+
+os.path.abspath(path)           retorna uma string com o caminho absoluto do argumento
+os.path.isabs(path)             retornara true caso seja um caminho absoluto ou false caso seja um relativo
+os.path.relpath(path, start)    retornara o caminho absoluto do argumento
+
+como no exemplo:
+                   >>> os.path.abspath('.')
+                   'C:\\Python34'
+		   >>> os.path.abspath('.\\Scripts')
+		   'C:\\Python34\\Scripts'
+		   >>> os.path.isabs('.')
+		   False
+   		   >>> os.path.isabs(os.path.abspath('.'))
+		   True 
+
+8.6
+     tambem podemos dividir o nosso caminho em raiz e nome base, usando as funçoes:
+
+os.path.basename()  que retorna o nome base
+os.path.dirname()   que retorna o caminho raiz
+
+usadas da sequinte forma:
+
+			>>> path = 'C:\\Windows\\System32\\calc.exe'
+			>>> os.path.basename(path)
+			'calc.exe'
+			>>> os.path.dirname(path)			
+			'C:\\Windows\\System32'
+
+	caso queira juntar o nome base e o caminho raiz em uma string pode-se usar a funçao: os.path.split()
+como no exemplo:
+
+		>>> calcFilePath = 'C: \\ Windows \\ System32 \\ calc.exe' 
+                >>> os.path.split (calcFilePath) 
+                ('C: \\ Windows \\ System32', 'calc.exe')
+
+
+8.7
+    outras funçoes:
+
+os.path.getsize(path)          retorna o tamanho do argumento (path) em bytes 
+os.listdir(path)               retorna uma string listando os nomes de cada arquivo no caminho apresentado
+os.path.exists(path)           retorna true caso o arquivo ou pasta do argumento exista ou retorna false caso nao exista
+os.path.isfile(path)           retorna true caso o argumento exista e seja um arquivo, caso contrario retorna false
+os.path.isdir(path)            retorna true caso o argumento exista e seja uma pasta, caso contrario retorna false
+os.path.exists('D: \\')        nesse caso especifico verifica se a unidade removivel D esta conectada
+
