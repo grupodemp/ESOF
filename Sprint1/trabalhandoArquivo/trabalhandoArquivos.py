@@ -1,0 +1,10 @@
+import os
+baconFile = open('C:\\Users\\Paulo Vicktor\\Downloads\\teste.txt', 'w')
+baconFile.write('hello word\n')
+baconFile.close()
+baconFile = open('C:\\Users\\Paulo Vicktor\\Downloads\\teste.txt', 'a')
+baconFile.write('bacon is not a vegetable')
+baconFile.close()
+baconFile = open('C:\\Users\\Paulo Vicktor\\Downloads\\teste.txt', 'r')
+print(baconFile.read())
+baconFile.close()
