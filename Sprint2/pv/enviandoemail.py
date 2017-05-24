@@ -1,0 +1,12 @@
+a = input('digite seu email')
+b = input('digite sua senha')
+c = input('digite o seu destinatario')
+d = input('digite sua mensagem')
+import smtplib
+smtpObj = smtplib.SMTP('smtp.gmail.com', 587)
+type(smtpObj)
+smtpObj.ehlo()
+smtpObj.starttls()
+smtpObj.login(a, b)
+smtpObj.sendmail(a, c, d)
+smtpObj.quit()

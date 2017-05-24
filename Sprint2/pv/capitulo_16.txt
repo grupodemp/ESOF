@@ -1,0 +1,9 @@
+	No capitulo 16 aprendemos a enviar e encontrar
+um email. Para enviar usamos funções como smtplib.SMTP
+para deternimar o tipo de uma conta de email e .login 
+para logar em uma conta e tambem .semdmail para enviar 
+texto. Ja para encontrar o email temos funções como 
+.select_folder para determinar onde iremos procurar 
+o email (INBOX, lixo, enviados) temos tambem .search 
+para buscar especificamente como a partir de uma data.
+Segue exemplos de um programa enviando e outro procurando.
