@@ -1,0 +1,32 @@
+8.8
+	Há funçoes essenciais para ler ou gravar arquivos em Python:
+open()
+read()
+close()
+write()
+
+um exemplo de programa que utiliza dessas funçoes é:
+
+ 				imagem 3
+
+
+8.9
+	Pode-se salvar variaveis em seus programas com o modulo shelve, de forma que seu programa possa restaurar
+dados para o disco rigido.
+	Um exemplo é:
+
+				imagem 4
+
+
+
+	outro modo de salvar variaveis para uso futuro é utilizando da funçao pprint.pprint() da seguinte forma:
+
+
+				imagem 5
+
+	feito isso foi armazenado as variaveis para uso futuro, assim é possivel importalas:
+
+
+				imagem 6
+	
+	 
